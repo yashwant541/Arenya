@@ -1,0 +1,57 @@
+<!-- Dataiku standard web app — HTML tab.
+     Paste this into the webapp's "HTML" section. In DSS the CSS/JS tabs load
+     automatically; standalone_app.py inlines them for local testing. -->
+<div class="afx-app" id="afxApp">
+
+  <header class="afx-header">
+    <div class="afx-brand">
+      <div class="afx-logo">ع→A</div>
+      <div class="afx-titles">
+        <h1>Arabic&nbsp;→&nbsp;English Financial Converter</h1>
+        <p>Upload Arabic submissions or GL workbooks — get clean, left-to-right English financials back, one output per file.</p>
+      </div>
+    </div>
+    <div class="afx-chip" id="afxHealth" title="Glossary loaded in the backend">
+      <span class="afx-dot"></span><span id="afxHealthText">connecting…</span>
+    </div>
+  </header>
+
+  <!-- Drop / select zone -->
+  <section class="afx-drop" id="afxDrop" tabindex="0" role="button"
+           aria-label="Upload files">
+    <input id="afxInput" type="file" multiple hidden
+           accept=".xlsx,.xlsm,.xls,.csv,.xltx" />
+    <div class="afx-drop-inner">
+      <div class="afx-drop-icon">⬆</div>
+      <div class="afx-drop-main">Drag &amp; drop files here, or <span class="afx-link">browse</span></div>
+      <div class="afx-drop-sub">Multiple files supported · .xlsx · .xlsm · .xls · .csv</div>
+    </div>
+  </section>
+
+  <!-- Queue + actions -->
+  <section class="afx-queue-wrap" id="afxQueueWrap" hidden>
+    <div class="afx-toolbar">
+      <div class="afx-count"><span id="afxCount">0</span> file(s) selected</div>
+      <div class="afx-actions">
+        <button class="afx-btn afx-btn-ghost" id="afxClear">Clear</button>
+        <button class="afx-btn afx-btn-primary" id="afxConvert">
+          <span class="afx-btn-label">Convert all</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="afx-summary" id="afxSummary" hidden>
+      <div class="afx-summary-item"><b id="afxSumDone">0</b><span>converted</span></div>
+      <div class="afx-summary-item"><b id="afxSumFlip">0</b><span>RTL&nbsp;flipped</span></div>
+      <div class="afx-summary-item"><b id="afxSumReview">0</b><span>cells&nbsp;to&nbsp;review</span></div>
+      <div class="afx-summary-item afx-summary-fail" id="afxSumFailWrap" hidden><b id="afxSumFail">0</b><span>failed</span></div>
+      <button class="afx-btn afx-btn-download-all" id="afxDownloadAll" hidden>⤓ Download all (.zip)</button>
+    </div>
+
+    <ul class="afx-list" id="afxList"></ul>
+  </section>
+
+  <footer class="afx-footer">
+    <span>Structure preserved · numbers untouched · every fuzzy / untranslated cell logged in a “Translation Log” tab.</span>
+  </footer>
+</div>

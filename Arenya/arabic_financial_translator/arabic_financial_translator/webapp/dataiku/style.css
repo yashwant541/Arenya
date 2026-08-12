@@ -1,0 +1,174 @@
+/* Dataiku standard web app — CSS tab.
+   A modern, finance-grade UI: calm blues, soft cards, clear status. */
+
+.afx-app {
+  --bg: #0f1729;
+  --panel: #ffffff;
+  --ink: #10203a;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --brand: #1f4e78;
+  --brand-2: #2b6cb0;
+  --ok: #15803d;
+  --ok-bg: #dcfce7;
+  --warn: #b45309;
+  --warn-bg: #fef3c7;
+  --err: #b91c1c;
+  --err-bg: #fee2e2;
+  --flip: #6b21a8;
+  --flip-bg: #f3e8ff;
+  --radius: 14px;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+  box-sizing: border-box;
+}
+.afx-app *, .afx-app *::before, .afx-app *::after { box-sizing: border-box; }
+
+/* Header */
+.afx-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap; margin-bottom: 22px;
+}
+.afx-brand { display: flex; align-items: center; gap: 16px; }
+.afx-logo {
+  width: 52px; height: 52px; border-radius: 13px; flex: none;
+  display: grid; place-items: center; font-weight: 800; font-size: 17px;
+  color: #fff; background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  box-shadow: 0 6px 18px rgba(31,78,120,.28); letter-spacing: .5px;
+}
+.afx-titles h1 { margin: 0; font-size: 20px; font-weight: 750; letter-spacing: -.2px; }
+.afx-titles p { margin: 4px 0 0; font-size: 13px; color: var(--muted); max-width: 620px; }
+
+.afx-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #f1f5f9; border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 13px; font-size: 12.5px; color: var(--muted); font-weight: 600;
+}
+.afx-dot { width: 8px; height: 8px; border-radius: 50%; background: #cbd5e1; }
+.afx-chip.ok .afx-dot { background: var(--ok); box-shadow: 0 0 0 3px var(--ok-bg); }
+.afx-chip.bad .afx-dot { background: var(--err); box-shadow: 0 0 0 3px var(--err-bg); }
+
+/* Drop zone */
+.afx-drop {
+  border: 2px dashed #cbd5e1; border-radius: var(--radius);
+  background: linear-gradient(180deg, #fafcff, #f4f8fd);
+  padding: 40px 20px; text-align: center; cursor: pointer;
+  transition: border-color .15s, background .15s, transform .05s;
+  outline: none;
+}
+.afx-drop:hover, .afx-drop:focus-visible { border-color: var(--brand-2); background: #eef5fc; }
+.afx-drop.drag { border-color: var(--brand-2); background: #e6f0fb; transform: scale(1.005); }
+.afx-drop-icon {
+  width: 46px; height: 46px; margin: 0 auto 12px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 20px; color: var(--brand-2);
+  background: #e6f0fb;
+}
+.afx-drop-main { font-size: 15.5px; font-weight: 650; }
+.afx-drop-sub { font-size: 12.5px; color: var(--muted); margin-top: 5px; }
+.afx-link { color: var(--brand-2); text-decoration: underline; }
+
+/* Toolbar */
+.afx-queue-wrap { margin-top: 22px; }
+.afx-toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-bottom: 14px; flex-wrap: wrap;
+}
+.afx-count { font-size: 13.5px; color: var(--muted); font-weight: 600; }
+.afx-count b, .afx-count span:first-child { color: var(--ink); }
+.afx-actions { display: flex; gap: 10px; }
+
+.afx-btn {
+  border: 1px solid var(--line); background: #fff; color: var(--ink);
+  font-size: 13.5px; font-weight: 650; padding: 9px 16px; border-radius: 10px;
+  cursor: pointer; transition: background .12s, box-shadow .12s, opacity .12s;
+  font-family: inherit;
+}
+.afx-btn:hover { background: #f8fafc; }
+.afx-btn:disabled { opacity: .55; cursor: not-allowed; }
+.afx-btn-primary {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #fff;
+  border-color: transparent; box-shadow: 0 4px 14px rgba(31,78,120,.25);
+}
+.afx-btn-primary:hover { background: linear-gradient(135deg, #1b456b, #2a63a1); }
+.afx-btn-ghost { background: transparent; }
+.afx-btn-download-all { background: #eef6ee; color: var(--ok); border-color: #cfe8cf; }
+.afx-btn-download-all:hover { background: #e2f1e2; }
+
+/* Summary */
+.afx-summary {
+  display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
+  background: #f8fafc; border: 1px solid var(--line); border-radius: 12px;
+  padding: 12px 18px; margin-bottom: 16px;
+}
+.afx-summary-item { display: flex; flex-direction: column; line-height: 1.15; }
+.afx-summary-item b { font-size: 18px; font-weight: 750; }
+.afx-summary-item span { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+.afx-summary-fail b { color: var(--err); }
+.afx-summary .afx-btn-download-all { margin-left: auto; }
+
+/* File list */
+.afx-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.afx-row {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 13px 16px; transition: box-shadow .12s, border-color .12s;
+}
+.afx-row:hover { box-shadow: 0 3px 12px rgba(15,23,42,.06); }
+.afx-row-icon {
+  width: 38px; height: 38px; flex: none; border-radius: 9px; display: grid; place-items: center;
+  font-size: 12px; font-weight: 750; color: #fff; background: #94a3b8;
+}
+.afx-row.xlsx .afx-row-icon, .afx-row.xlsm .afx-row-icon, .afx-row.xls .afx-row-icon { background: #217346; }
+.afx-row.csv .afx-row-icon { background: #0e7490; }
+.afx-row-body { flex: 1; min-width: 0; }
+.afx-row-name { font-size: 14px; font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.afx-row-meta { font-size: 12px; color: var(--muted); margin-top: 3px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+.afx-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 999px;
+  background: #f1f5f9; color: var(--muted);
+}
+.afx-badge.flip { background: var(--flip-bg); color: var(--flip); }
+.afx-badge.review { background: var(--warn-bg); color: var(--warn); }
+.afx-badge.clean { background: var(--ok-bg); color: var(--ok); }
+
+.afx-status { font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+.afx-status.queued { color: var(--muted); }
+.afx-status.processing { color: var(--brand-2); }
+.afx-status.done { color: var(--ok); }
+.afx-status.error { color: var(--err); }
+
+.afx-spin {
+  width: 13px; height: 13px; border-radius: 50%;
+  border: 2px solid #cbd5e1; border-top-color: var(--brand-2);
+  animation: afx-spin .7s linear infinite; display: inline-block;
+}
+@keyframes afx-spin { to { transform: rotate(360deg); } }
+
+.afx-row-actions { display: flex; align-items: center; gap: 8px; flex: none; }
+.afx-icon-btn {
+  border: none; background: transparent; color: var(--muted); cursor: pointer;
+  font-size: 16px; padding: 6px; border-radius: 8px; line-height: 1;
+}
+.afx-icon-btn:hover { background: #f1f5f9; color: var(--err); }
+.afx-dl {
+  border: 1px solid #cfe8cf; background: #eef6ee; color: var(--ok);
+  font-size: 12.5px; font-weight: 700; padding: 7px 13px; border-radius: 9px;
+  cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+}
+.afx-dl:hover { background: #e2f1e2; }
+
+.afx-terms { font-size: 11.5px; color: var(--warn); margin-top: 4px; }
+.afx-terms code { background: var(--warn-bg); padding: 1px 6px; border-radius: 5px; direction: rtl; unicode-bidi: isolate; }
+
+.afx-footer { margin-top: 26px; font-size: 12px; color: var(--muted); text-align: center; }
+
+@media (max-width: 560px) {
+  .afx-summary { gap: 14px; }
+  .afx-row { flex-wrap: wrap; }
+  .afx-row-actions { width: 100%; justify-content: flex-end; }
+}
